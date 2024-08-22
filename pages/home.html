@@ -1,71 +1,87 @@
-<html>
-    <head>
-        <title>Tela Incial</title>
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/public/style.css">
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    </head>
 
-    <body>
-        <header>
-            <div class="center">
-                <div class="logo">
-                    <h2><span style="font-weight: lighter;">Portal</span><b>News</b></h2>
-                </div> <!--logo-->
-                <div class="form-busca">
-                    <form>
-                        <i class="fa fa-search" aria-hidden="true"></i>
-                        <input type="text" placeholder="Busca..." name="busca">
-                    </form>
-                </div> <!--formbusca-->
-            </div> <!--center-->
-        </header>
+<%- include('partials/header.html') %>
 
-        <section class="noticia-destaque">
-            <div class="center">
-                <class class="img-destaque">
-                    <div class="overlay-destaque">
-                        
-                    </div>
-                    <div class="title-destque-descricao">
-                        <h2>Quer Fugir das praias de verão?</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum</p>
-                    </div>
-                    <img src="/public/images/landscape.jpg">
-                </class>
+<section class="noticia-destaque">
+    <div class="center">
+        <div class="img-destaque">
+            <div class="overlay-destaque"></div>
+            <div class="title-destaque-descricao">
+                <!--feito em off o link aqui e adicionado nos estilos-->
+                <a href="/slug-aqui"><h2>Quer Fugir das Praias de Verão?</h2></a>
+                <p>Donec consectetur libero eget bibendum ullamcorper. Quisque auctor nulla eu enim ultrices laoreet. Na..</p>
             </div>
-        </section>
+            <img src="/public/images/landscape.jpg" />
+        </div>
+    </div>
+</section>
 
-        <section class="outras-noticias">
-            <div class="title-outras-noticias">
-                <h2>Ultimas noticias</h2>
-                <br><br>
-                <div class="center">
-                    <div class="ultimas">
-                        <div class="box-ultima-single">
-                            <img src="/public/images/noticia.webp" class="img-noticias">
-                            <div class="conteudo-noticia-single">
-                                <h3>Natureza e Geral</h3>
-                                <h2>Como encarar o surf no frio</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in </p>    
-                            </div>
-                        </div>
-                        <div class="box-ultima-single">
-                            <img src="/public/images/noticia.webp" class="img-noticias">
-                            <div class="conteudo-noticia-single">
-                                <h3>Natureza e Geral</h3>
-                                <h2>Como encarar o surf no frio</h2>
-                                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. remaining essentially unchanged. It was popularised in </p>
-                            </div>
+<section class="outras-noticias">
+    <div class="title-outras-noticia">
+        <h2>Últimas Notícias</h2>
+        <br><br>
+        <div class="center">
+            <div class="ultimas">
+                <div class="box-ultima-single">
+                    <img src="/public/images/noticia.webp" />
+                    <div class="conteudo-noticia-single">
+                    <h3>Natureza e Geral</h3>
+                    <h2>Como Encarar o Surf em Floripa</h2>
+                    <p>A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.</p>
+                    <a href="/encarar-o-surf">Saiba mais</a>
+                </div>
+                </div>
+                <div class="box-ultima-single">
+                    <img src="/public/images/noticia.webp" />
+                    <div class="conteudo-noticia-single">
+                    <h3>Natureza e Geral</h3>
+                    <h2>Como Encarar o Surf em Floripa</h2>
+                    <p>A água gelada e o vento pode acabar com a sua felicidade de ir para a água. Cientistas afirmam que a chance de hipotermia é real e você precisa se cuidar. Veja como.</p>
+                    <a href="/encarar-o-surf">Saiba mais</a>
+                </div>
+                </div>
+            </div>
+            <div class="mais-lidas">
+                <h3>Mais Lidas</h3>
+                <div class="mais-lidas-noticias">
+                    <div class="mais-lida-noticia-single">
+                        <img src="/public/images/alaska.webp" />
+                        <div class="texto-mais-lida-single">
+                            <h4>Natureza</h4>
+                            <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                            <a href="/encarar-o-surf">Saiba mais</a>
                         </div>
                     </div>
-                    <div class="mais-lidas">
-                        <h3>Mais Lidas</h3>
+                    <div class="mais-lida-noticia-single">
+                        <img src="/public/images/alaska.webp" />
+                        <div class="texto-mais-lida-single">
+                            <h4>Natureza</h4>
+                            <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                            <a href="/encarar-o-surf">Saiba mais</a>
+                        </div>
+                    </div>
+                    <div class="mais-lida-noticia-single">
+                        <img src="/public/images/alaska.webp" />
+                        <div class="texto-mais-lida-single">
+                            <h4>Natureza</h4>
+                            <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                            <a href="/encarar-o-surf">Saiba mais</a>
+                        </div>
+                    </div>
+                    <div class="mais-lida-noticia-single">
+                        <img src="/public/images/alaska.webp" />
+                        <div class="texto-mais-lida-single">
+                            <h4>Natureza</h4>
+                            <p>A importância da floresta do ártico para a biodiversidade mundial. Qual o impacto o degelo na fauna e flora?</p>
+                            <a href="/encarar-o-surf">Saiba mais</a>
+                        </div>
                     </div>
                 </div>
             </div>
-        </section>
-    </body>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer.html') %>
+
+</body>
 </html>
