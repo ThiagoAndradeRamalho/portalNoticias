@@ -1,12 +1,19 @@
 const express = require('express');
-const bodyParser = require('body-parser')
+const bodyParser = require('body-parser');
+const mogoose = require('mongoose');
 const path = require('path');
 const app = express();
+
+mogoose.connect('',{useNewUrlParser: true, uneUnifiedTopology: true}).then(function(){
+    console.log("Conectado com sucesso")
+}).catch(function(err){
+    console.log(err.message)
+})
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
-}))
+}));
 
 app.engine('html',require('ejs').renderFile);
 app.set('view engine', 'html');
