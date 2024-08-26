@@ -3,8 +3,9 @@ const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
 const path = require('path');
 const app = express();
+const Posts = require('./Posts');
 
-mongoose.connect('mongodb+srv://root:ZUGEnnzA9Lby9em5@cluster0.ogzvt.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0',{
+mongoose.connect('mongodb+srv://root:ZUGEnnzA9Lby9em5@cluster0.ogzvt.mongodb.net/portalNoticias?retryWrites=true&w=majority&appName=Cluster0', {
 }).then(function() {
     console.log("Conectado com sucesso");
 }).catch(function(err) {
@@ -21,18 +22,37 @@ app.set('view engine', 'html');
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.set('views', path.join(__dirname, '/pages'));
 
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
     console.log(req.query);
 
     if (req.query.busca == null) {
-        res.render('home', {})
+        try {
+            let posts = await Posts.find({}).sort({'_id': -1}).exec(); 
+
+            posts = posts.map(function(val){
+                return {
+                titulo: val.titulo,
+                conteudo: val.conteudo,
+                descricaoCurta: val.conteudo.substr(0,100),
+                imagem: val.imagem,
+                slug: val.slug,
+                categoria: val.categoria,
+                
+                }
+            })
+            
+            res.render('home', { posts: posts });
+        } catch (err) {
+            console.error(err);
+            res.status(500).send("Erro ao buscar posts");
+        }
     } else {
-        res.render('busca', {})
+        res.render('busca', {});
     }
 });
 
 app.get('/:slug', (req, res) => {
-    res.render('single', {})
+    res.render('single', {});
 });
 
 app.listen(5000, () => {
