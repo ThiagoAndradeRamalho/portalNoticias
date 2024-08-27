@@ -1,0 +1,13 @@
+<% for(let k = 0; k < postSop.length; k++) { %>
+    <div class="mais-lida-noticia-single">
+        <img src="<%= postSop[k].imagem %>" />
+        <div class="texto-mais-lida-single">
+        <h4><%= postSop[k].categoria %></h4>
+        
+        <%- postSop[k].descricaoCurta %>
+        <br>
+        <h5>Views (<%= postSop[k].views %>)</h5>
+        <a href="/<%= postSop[k].slug %>">Saiba mais</a>
+        </div>
+    </div>
+<% } %>

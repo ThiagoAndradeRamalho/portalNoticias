@@ -1,68 +1,26 @@
 <%- include('partials/header.html') %>
 
-    <section class="noticia">
-        <div class="center">
-            <siv class="noticia-single">
-                <h2>Dez principais habilidades para se tornar um full-stack</h2>
-                <div class="autor-nome">
-                    <span>Por Thiago Andrade</span>
-                </div>
-                <p>ez principais habilidades para se tornar um full-stackDez principais habilidades para se tornar um
-                    full-stackDez principais habilidades para se tornar um full-stackDez principais habilidades para se
-                    tornar um full-stackDez principais habilidades para se tornar um full-stack
-                </p>
-                <h3>Dez principais habilidades para se tornar um full-stack</h3>
-                <p>Dez principais habilidades para se tornar um full-stackDez principais habilidades para se tornar um
-                    full-stackDez principais habilidades para se tornar um full-stackDez principais habilidades para se
-                    tornar um full-stackDez principais habilidades para se tornar um full-stackDez principais
-                    habilidades para se tornar um full-stackDez principais habilidades para se tornar um full-stack
-                </p>
-            </siv>
-            <div class="mais-lidas">
-                <h3>Mais Lidas</h3>
-                <div class="mais-lida-noticias">
-                    <div class="mais-lida-noticia-single">
-                        <img src="/public/images/alaska.webp">
-                        <div class="texto-mais-lida-single">
-                            <h4>Natureza</h4>
-                            <p>A importancia do artico importancia do artico importancia do artico importancia do
-                                artico importancia do artico </p>
-                            <a href="/encarar-surf">Saiba mais</a>
-                        </div>
-                    </div>
-                    <div class="mais-lida-noticia-single">
-                        <img src="/public/images/alaska.webp">
-                        <div class="texto-mais-lida-single">
-                            <h4>Natureza</h4>
-                            <p>A importancia do artico importancia do artico importancia do artico importancia do
-                                artico importancia do artico </p>
-                            <a href="/encarar-surf">Saiba mais</a>
-                        </div>
-                    </div>
-                    <div class="mais-lida-noticia-single">
-                        <img src="/public/images/alaska.webp">
-                        <div class="texto-mais-lida-single">
-                            <h4>Natureza</h4>
-                            <p>A importancia do artico importancia do artico importancia do artico importancia do
-                                artico importancia do artico </p>
-                            <a href="/encarar-surf">Saiba mais</a>
-                        </div>
-                    </div>
-                    <div class="mais-lida-noticia-single">
-                        <img src="/public/images/alaska.webp">
-                        <div class="texto-mais-lida-single">
-                            <h4>Natureza</h4>
-                            <p>A importancia do artico importancia do artico importancia do artico importancia do
-                                artico importancia do artico </p>
-                            <a href="/encarar-surf">Saiba mais</a>
-                        </div>
-                    </div>
-                </div>
+<section class="noticia">
+    <div class="center">
+        <div class="noticia-single">
+            <h2><%= noticia.titulo %></h2>
+            <div class="autor-nome">
+                <span>Por <%= noticia.autor %></span>
+            </div>
+            <br/>
+            <div><img style="max-width: 100%;" src="<%= noticia.imagem %>" ></div>
+            <br/>
+            <%- noticia.conteudo %>
+        </div>
+        <div class="mais-lidas">
+            <h3>Mais Lidas</h3>
+            <div class="mais-lida-noticias">
+                
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <%- include('partials/footer.html') %>
-        </body>
-
-        </html>
+<%- include('partials/footer.html') %>
+</body>
+</html>

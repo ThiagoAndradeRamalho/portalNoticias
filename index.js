@@ -31,28 +31,57 @@ app.get('/', async (req, res) => {
 
             posts = posts.map(function(val){
                 return {
-                titulo: val.titulo,
-                conteudo: val.conteudo,
-                descricaoCurta: val.conteudo.substr(0,100),
-                imagem: val.imagem,
-                slug: val.slug,
-                categoria: val.categoria,
-                
+                    titulo: val.titulo,
+                    conteudo: val.conteudo,
+                    descricaoCurta: val.conteudo.substr(0,100),
+                    imagem: val.imagem,
+                    slug: val.slug,
+                    categoria: val.categoria                
                 }
-            })
-            
-            res.render('home', { posts: posts });
+            });
+
+            let postSop = await Posts.find({}).sort({'views': -1}).limit(3).exec(); 
+
+            postSop = postSop.map(function(val){
+                return {
+                    titulo: val.titulo,
+                    conteudo: val.conteudo,
+                    descricaoCurta: val.conteudo.substr(0,100),
+                    imagem: val.imagem,
+                    slug: val.slug,
+                    categoria: val.categoria,
+                    views: val.views
+                }
+            });
+
+            res.render('home', { posts: posts, postSop: postSop });
         } catch (err) {
             console.error(err);
             res.status(500).send("Erro ao buscar posts");
         }
     } else {
-        res.render('busca', {});
+        res.redirect('/');
     }
 });
 
-app.get('/:slug', (req, res) => {
-    res.render('single', {});
+
+app.get('/:slug', async (req, res) => {
+    try {
+        const resposta = await Posts.findOneAndUpdate(
+            { slug: req.params.slug }, 
+            { $inc: { views: 1 } }, 
+            { new: true },
+        );
+
+        if (!resposta) {
+            return res.status(404).send("Notícia não encontrada");
+        }
+
+        res.render('single', { noticia: resposta });
+    }catch (err){
+        console.error(err);
+        res.status(500).send("Erro ao buscar a notícia");
+    }
 });
 
 app.listen(5000, () => {

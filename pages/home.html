@@ -7,7 +7,6 @@
             <div class="overlay-destaque"></div>
             <link rel="stylesheet" href="../public/style.css">
             <div class="title-destaque-descricao">
-                <!--feito em off o link aqui e adicionado nos estilos-->
                 <a href="/slug-aqui"><h2><%= posts[0].titulo %></h2></a>
                 <p><%- posts[0].descricaoCurta %>.../p>
             </div>
@@ -38,19 +37,7 @@
             <div class="mais-lidas">
                 <h3>Mais Lidas</h3>
                 <div class="mais-lidas-noticias">
-                    
-                    <% for(let i = 0; i < posts.length; i++) { %>
-
-                        <div class="mais-lida-noticia-single">
-                            <img src="<%= posts[i].imagem %>" />
-                            <div class="texto-mais-lida-single">
-                                <h4><%= posts[i].categoria %></h4>
-                                <p><%- posts[i].descricaoCurta %>...</p>
-                                <a href="/<%= posts[i].slug %>">Saiba mais</a>
-                            </div>
-                        </div>
-
-                    <% } %>
+                    <%- include('partials/maisLidas.html') %>
                 </div>
             </div>
         </div>
