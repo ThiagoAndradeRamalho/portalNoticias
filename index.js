@@ -58,9 +58,32 @@ app.get('/', async (req, res) => {
         } catch (err) {
             console.error(err);
             res.status(500).send("Erro ao buscar posts");
+            res.redirect('/');
         }
     } else {
-        res.redirect('/');
+
+        try{
+            let posts = await Posts.find({titulo : {$regex: req.query.busca, $options: "i"}});
+
+            posts = posts.map(function(val){
+                return {
+                    titulo: val.titulo,
+                    conteudo: val.conteudo,
+                    descricaoCurta: val.conteudo.substr(0,100),
+                    imagem: val.imagem,
+                    slug: val.slug,
+                    categoria: val.categoria,
+                    views: val.views
+                }
+            });
+            
+            res.render('busca',{posts: posts,contagem: posts.length});
+
+            
+        }catch (err){
+            console.error(err);
+            res.status(500).send("Erro ao buscar notícias");
+        } 
     }
 });
 
